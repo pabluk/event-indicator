@@ -17,7 +17,7 @@ $ python event-indicator.py
 Screenshot
 ----------
 
-![Screenshot](http://pabloseminario.com/wp-content/uploads/2012/10/screenshot.png)
+![Screenshot](http://seminar.io/media/screenshots/event-indicator.png)
 
 
 Author
