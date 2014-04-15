@@ -47,23 +47,23 @@ class EventIndicator(object):
         Gtk.main()
 
     def on_event_activate(self, widget, event_type):
-        print event_type
+        print(event_type)
         self.event_list.append((datetime.now(), event_type))
         self.generate_menu()
 
     def on_clear_activate(self, widget):
-        print "Clearing list..."
+        print("Clearing list...")
         self.event_list = []
         self.generate_menu()
 
     def on_quit_activate(self, widget):
-        print "saving event list"
+        print("saving event list")
         self.save_state()
-        print "Bye!"
+        print("Bye!")
         Gtk.main_quit()
 
     def generate_menu(self):
-        print "Generating menu..."
+        print("Generating menu...")
         menu = Gtk.Menu()
 
         item = Gtk.MenuItem("Start event")
@@ -80,7 +80,7 @@ class EventIndicator(object):
         if self.event_list:
             for event_time, event_type in self.event_list:
                 label = "%s %s" % (event_time.strftime("%H:%M:%S"), event_type)
-                print "adding item", label
+                print("adding item %s" % label)
                 item = Gtk.MenuItem(label)
                 menu.append(item)
             item = Gtk.SeparatorMenuItem()
