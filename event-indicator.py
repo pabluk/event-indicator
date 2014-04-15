@@ -39,9 +39,9 @@ class EventIndicator(object):
         self.event_list = []
         self.load_state()
         self.indicator = appindicator.Indicator.new(
-                            "event-indicator",
-                            "user-idle-panel",
-                            appindicator.IndicatorCategory.APPLICATION_STATUS)
+            "event-indicator",
+            "user-idle-panel",
+            appindicator.IndicatorCategory.APPLICATION_STATUS)
         self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
         self.generate_menu()
         Gtk.main()
