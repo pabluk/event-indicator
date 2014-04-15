@@ -20,6 +20,7 @@
 # License version 3 and version 2.1 along with this program.  If not, see
 # <http://www.gnu.org/licenses/>
 #
+import os.path
 import pickle
 from datetime import datetime
 
@@ -27,7 +28,8 @@ from gi.repository import Gtk
 from gi.repository import AppIndicator3 as appindicator
 
 
-STATE_FILE = 'state.dat'
+STATE_FILE = os.path.join(os.path.expanduser("~"),
+                          ".cache", "event-indicator.dat")
 
 EVENT_START = 'start'
 EVENT_STOP = 'stop'
