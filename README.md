@@ -1,7 +1,9 @@
 Event Indicator
 ===============
 
-It's just a proof of concept using the [AppIndicator API](http://developer.ubuntu.com/api/ubuntu-12.04/c/AppIndicator3-0.1.html) on Ubuntu 12.04 to register events.
+It's just a proof of concept using the [AppIndicator API](http://developer.ubuntu.com/api/ubuntu-12.04/c/AppIndicator3-0.1.html) to register events.
+
+Tested with Python 2.7 and 3.3 on Ubuntu 12.04 and 13.10.
 
 
 Usage
