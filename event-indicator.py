@@ -101,11 +101,11 @@ class EventIndicator(object):
         self.indicator.set_menu(menu)
 
     def save_state(self):
-        pickle.dump(self.event_list, open(STATE_FILE, 'w'))
+        pickle.dump(self.event_list, open(STATE_FILE, 'wb'))
 
     def load_state(self):
         try:
-            self.event_list = pickle.load(open(STATE_FILE))
+            self.event_list = pickle.load(open(STATE_FILE, 'rb'))
         except IOError:
             self.event_list = []
 
