@@ -49,13 +49,13 @@ class EventIndicator(object):
         Gtk.main()
 
     def on_event_activate(self, widget, event_type):
-        self.log(event_type)
+        self.log("Click on %s event" % event_type)
         self.event_list.append((datetime.now(), event_type))
         self.generate_menu()
         self.save_state()
 
     def on_clear_activate(self, widget):
-        self.log("Clearing list...")
+        self.log("Clearing event list")
         self.event_list = []
         self.generate_menu()
         self.save_state()
@@ -65,7 +65,7 @@ class EventIndicator(object):
         Gtk.main_quit()
 
     def generate_menu(self):
-        self.log("Generating menu...")
+        self.log("Generating menu")
         menu = Gtk.Menu()
 
         item = Gtk.MenuItem("Start event")
@@ -82,7 +82,7 @@ class EventIndicator(object):
         if self.event_list:
             for event_time, event_type in self.event_list:
                 label = "%s %s" % (event_time.strftime("%H:%M:%S"), event_type)
-                self.log("adding item %s" % label)
+                self.log("Adding item %s to menu" % label)
                 item = Gtk.MenuItem(label)
                 menu.append(item)
             item = Gtk.SeparatorMenuItem()
@@ -103,10 +103,11 @@ class EventIndicator(object):
         self.indicator.set_menu(menu)
 
     def save_state(self):
-        self.log("saving event list")
+        self.log("Saving event list")
         pickle.dump(self.event_list, open(STATE_FILE, 'wb'))
 
     def load_state(self):
+        self.log("Restoring event list")
         try:
             self.event_list = pickle.load(open(STATE_FILE, 'rb'))
         except IOError:
