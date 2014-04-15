@@ -52,15 +52,15 @@ class EventIndicator(object):
         print(event_type)
         self.event_list.append((datetime.now(), event_type))
         self.generate_menu()
+        self.save_state()
 
     def on_clear_activate(self, widget):
         print("Clearing list...")
         self.event_list = []
         self.generate_menu()
+        self.save_state()
 
     def on_quit_activate(self, widget):
-        print("saving event list")
-        self.save_state()
         print("Bye!")
         Gtk.main_quit()
 
@@ -103,6 +103,7 @@ class EventIndicator(object):
         self.indicator.set_menu(menu)
 
     def save_state(self):
+        print("saving event list")
         pickle.dump(self.event_list, open(STATE_FILE, 'wb'))
 
     def load_state(self):
